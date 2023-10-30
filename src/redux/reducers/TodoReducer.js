@@ -29,7 +29,7 @@ export const TodoReducer = createSlice({
             }
         },
         deleteTodo: (state, action) => {
-            return state.todos.filter(todo => todo.id !== action.payload.id);
+            state.todos = state.todos.filter(todo => todo.id !== action.payload.id);
         },
         setFilter: (state, action) => {
             state.filter = action.payload
