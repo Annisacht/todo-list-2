@@ -4,7 +4,6 @@ import { addTodo, updateTodo, complete, deleteTodo, setFilter } from '../redux/r
 
 export default function TodoList() {
   const todos = useSelector((state) => state.todos.todos);
-  console.log(todos)
   const dispatch = useDispatch();
   const [newTodo, setNewTodo] = useState('');
   const [editingId, setEditingId] = useState(null);
@@ -21,6 +20,7 @@ export default function TodoList() {
 
   const handleEditChange = (e, id) => {
     const newText = e.target.value;
+    setUpdatedTodo(newText)
     dispatch(updateTodo({ id, text: newText }));
   };
 
@@ -28,8 +28,8 @@ export default function TodoList() {
     setEditingId(null);
   };
 
-  const [isEmpty, setIsEmpty] = useState (false)
-
+  const [isEmpty, setIsEmpty] = useState(false)
+  const [updatedTodo,setUpdatedTodo] = useState('')
   const filterTodos = todos.filter((todo) => {
     if (filter === 'all'){
       return true
@@ -58,10 +58,9 @@ export default function TodoList() {
                     <input
                       type="text"
                       value={todo.text}
-                      onChange={(e) => handleEditChange(e, todo.id)}
-                      className="form-control"
+                      onChange={(e) => handleEditChange(e, todo.id)} className="form-control"
                     />
-                    <button onClick={() => handleSaveEdit(todo.id)} className="btn btn-primary">Save</button>
+                    <button onClick={() => updatedTodo.trim() === '' ? '' : handleSaveEdit(todo.id)} className="btn btn-primary">Save</button>
                   </div>
                 ) : (
                   <div>
