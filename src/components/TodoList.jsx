@@ -46,6 +46,8 @@ export default function TodoList() {
     <>
       <div>
         <input type="text" value={newTodo} onChange={(e) => { setNewTodo(e.target.value) }} className="form-control" />
+        
+        { newTodo.trim() === '' ? <div className='text-danger fw-bold'>isi dl lah!</div> : ''}
         <button onClick={newTodo.trim() === '' ? '' : handleAddTodo} className="btn btn-primary mt-4">Add Todo</button>
         <ul className="list-group">
           {filterTodos.map((todo) => (
