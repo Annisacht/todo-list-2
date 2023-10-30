@@ -62,7 +62,7 @@ export default function TodoList() {
                       value={todo.text}
                       onChange={(e) => handleEditChange(e, todo.id)} className="form-control"
                     />
-                    <button onClick={() => updatedTodo.trim() === '' ? '' : handleSaveEdit(todo.id)} className="btn btn-primary">Save</button>
+                    <button onClick={handleSaveEdit(todo.id)} className="btn btn-primary">Save</button>
                   </div>
                 ) : (
                   <div>
