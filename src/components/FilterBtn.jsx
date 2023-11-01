@@ -14,24 +14,25 @@ export default function FilterBtn(){
     };
 
     return (
-        <div className="row filter-btn m-5">
-            <div className="col-12">
+        <div className="row filter-btn m-5 ">
+            <div className="wrapper-btn col-12 d-grid gap-2 d-md-flex justify-content-md-center ">
                 <button
-                    className={`btn ${activeBtn === "all" ? "btn-success" : "btn-secondary"}`}
+                    className={`btn ${activeBtn === "all" ? "btn-warning" : "btn-outline-secondary"}`} 
                     onClick={() => handleFilter("all")}
                 >
                     All
                 </button>
+                
 
                 <button
-                    className={`btn ${activeBtn === "active" ? "btn-success" : "btn-secondary"}`}
+                    className={`btn ${activeBtn === "active" ? "btn-warning" : "btn-outline-secondary"}`}
                     onClick={() => handleFilter("active")}
                 >
                     Active
                 </button>
 
                 <button
-                    className={`btn ${activeBtn === "completed" ? "btn-success" : "btn-secondary"}`}
+                    className={`btn ${activeBtn === "completed" ? "btn-warning" : "btn-outline-secondary"}`}
                     onClick={() => handleFilter("completed")}
                 >
                     Completed
